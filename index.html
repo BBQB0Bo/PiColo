@@ -1,20 +1,54 @@
-<hmtl>
-	<head>
+<html>
+<head>
 	</head>
 
-	<body>
-		<p>Welcome to PiColo</p>
+<body>
 
-		<div>
-			<p>Login</p>
-			<form action="/login">
-				Account Name<input type="text" name="name">
-				Password<input type="text" name="password">
-				<button type="submit">Login</button>
-			</form>
-			
-		</div>
-		
-	</body>
+	<form id="image_form">
+		Url:<input type="text" name="url">
+		W:<input type="text" name="width">
+		H:<input type="text" name="height">
+		<input type="submit">
+	</form>
 
-</hmtl>
+	
+</body>
+
+</html>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('service_worker.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+/*
+	var worker= new Worker('C:\\Users\\Alex\\Desktop\\Picolo\\PiColo\\service_worker.js');
+
+	worker.addEventListener('message', function(e) {
+  console.log('Worker said: ', e.data);
+}, false);
+	
+
+		document.getElementById("image_form").addEventListener("submit", function(event){
+  event.preventDefault();
+
+
+
+console.log(this.elements["url"].value);
+  var url=this.elements["url"].value;
+  var width=this.elements["width"].value;
+    var width=this.elements["height"].value;
+
+	worker.postMessage(url); 
+
+
+});*/
+</script>
